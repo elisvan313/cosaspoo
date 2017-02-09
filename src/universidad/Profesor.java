@@ -13,9 +13,15 @@ import java.util.ArrayList;
  */
 public class Profesor {
     
-    int id;
+    private int id;
     String nombre;
     ArrayList<Curso> cursos;
+
+   
+
+    public int getId() {
+        return id;
+    }
 
     public Profesor(int id){
         this.id = id;
@@ -28,6 +34,10 @@ public class Profesor {
             return true;
         }
         return false;
+    }
+    
+    public int numeroCursos(int id ,Curso curso){
+        return cursos.size();
     }
     
    

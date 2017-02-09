@@ -1,14 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package universidad;
 
-/**
- *
- * @author Administrador
- */
+import java.util.ArrayList;
+
+
 public class Estudiante {
+    int cod;
+    String nombre;
+    ArrayList<Curso> cursos;
+
+    
+
+    public int getCod() {
+        return cod;
+    }
+    
+    public Estudiante(int cod) {
+        this.cod=cod;
+        cursos = new ArrayList();
+    }
+    
+    public void agregarCurso(Curso curso){
+        cursos.add(curso);
+    }
+    
     
 }
