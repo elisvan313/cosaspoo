@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Curso {
     private int nrc;
     private Profesor profesor;
-    private ArrayList<Estudiante> estudiantes;
+    private Estudiante estudiantes;
  
     public Curso(int nrc) {
         this.nrc = nrc;
@@ -29,6 +29,14 @@ public class Curso {
         return profesor; 
     }
 
+    public void setEstudiantes(Estudiante estudiantes) {
+        if (this.estudiantes == null){
+            this.estudiantes = estudiantes;
+        }
+    }
+
+    
+    
     public void setProfesor(Profesor profesor) {
         if (this.profesor == null){
             this.profesor = profesor;
@@ -36,7 +44,9 @@ public class Curso {
     }
     
     public void agregarEstudiante(Estudiante s){
-        this.estudiantes.add(s);
+        if (this.estudiantes == null) {
+            this.estudiantes = s;
+        }
     }
     
     

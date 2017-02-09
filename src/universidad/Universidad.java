@@ -52,9 +52,30 @@ public class Universidad {
     }
     
     public void agregarEstudiante(){
-       Estudiante e1 = new Estudiante(0101);
-       estudiantes.add(e1);
-    }
+//       Estudiante e1 = new Estudiante(0101);
+//       estudiantes.add(e1);
+        boolean continuar = true;
+        int codigo, opc;
+        String nombre;
+        while (continuar) {          
+            System.out.println("Digite el codigo del Estudiante");
+            codigo = leer.nextInt();
+            Estudiante i = new Estudiante(codigo);
+            estudiantes.add(i);
+            System.out.println("Desea continuar(1 YES/0 NO)");
+            opc = leer.nextInt();
+            if (opc==0) {
+                continuar = false;
+//                if (profesores.size()==1) {
+//                    System.out.println("Hay " + profesores.size()+ " Profesor");
+//                }
+//                else
+//                {
+//                    System.out.println("Hay " + profesores.size()+ " Profesores");
+//                }
+            }
+        }
+    }    
     
     public void agregarCurso(){
         Curso c = new Curso(10);
@@ -65,14 +86,19 @@ public class Universidad {
        p.cursos.add(c);
        c.setProfesor(p);
     }
-    
-   public static void menu (){
-
-   }
-    
+     public void registrarEstudiantesCurso(Estudiante e, Curso c){
+       e.cursos.add(c);
+       c.setEstudiantes(e);
+    }
+  
     
     
     public static void main(String[] args) {
+        int apc;
+        do {
+            
+        
+        
        System.out.println("Menu");
        System.out.println("Agregar profesor 1");
        System.out.println("Agregar estudiante 2");
@@ -84,7 +110,8 @@ public class Universidad {
        System.out.println("Lista de estudiantes por curso 8");
        System.out.println("SALIR 0");
        Scanner leeer=new Scanner(System.in);
-       int apc=leeer.nextInt();
+        apc=leeer.nextInt();
+       
        Universidad universidad = new Universidad();
         switch (apc) {
             case 1:
@@ -98,16 +125,22 @@ public class Universidad {
                 break;
             case 4:
                 System.out.println("Digite el codigo del profesor");
-                int p=leeer.nextInt();
+                int codigo=leeer.nextInt();
                 System.out.println("Digite el nrc del curso");
-                int c1=leeer.nextInt();
+                int nrc=leeer.nextInt();
 //                universidad.registrarProfesorCurso(p, c);
+                Profesor p = new Profesor(codigo);
+                Curso cu = new Curso (nrc);
+                universidad.registrarProfesorCurso(p, cu);
                 break;
             case 5:
+                System.out.println("Ingrese Codigo del estudiante");
+                int id = leeer.nextInt();
+                Estudiante e = new Estudiante(id);
                 
                 break;
             case 6:
-                
+                System.out.println("");
                 break;
             case 7:
                 
@@ -119,8 +152,8 @@ public class Universidad {
                 
                 break;
             default:
-                throw new AssertionError();
-        }
+               
+        }} while (apc !=0);
        
        
        

@@ -10,18 +10,18 @@ public class Estudiante {
 
     
 
-    public int getCod() {
-        return cod;
-    }
-    
     public Estudiante(int cod) {
-        this.cod=cod;
+        this.cod = cod;
         cursos = new ArrayList();
     }
     
-    public void agregarCurso(Curso curso){
-        cursos.add(curso);
-    }
-    
+   
+ public boolean agregarCurso(Curso curso){
+        if (cursos.size() < 10){
+            cursos.add(curso);
+            return true;
+        }
+        return false;
+    }    
     
 }
